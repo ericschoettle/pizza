@@ -1,42 +1,64 @@
-<!-- template tricks:
--to change pairs to .pairs, "mv pairs .pairs"
--to delete the .git, "rm -rf .git"  -->
 
+# _Pizza_
 
-# _{Application Name}_
+#### _Website on which to order a pizza, 4/7/17_
 
-#### _{Brief description of application}, {Date of current version}_
-
-#### By _**{List of contributors}**_
+#### By _**Eric Schoettle**_
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+_This website allows the user to order pizza. The user can select the pizza size, crust, toppings, and the number of pizzas, and the website will record the above and calculate a price for the pizza. Multiple pies are also an option._
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+_Just download the folder and open index.html in your favorite web browser. Unless that's something incredibly obscure or outdated. Then get a normal web browser._
 
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+## Specifications
+
+* _Constructor will make a pizza object with toppings, crust, size, and price traits_
+
+* _Object of pizza sizes will be created_
+  * _eg. sizes = small, medium, large, xl_
+* _Pizza sizes will be objects with associated diameters and pricing_
+  * _eg small.diameter = 10 inch, small.price = 8_
+* _The Pizza object will be able to get a size object from the pizza sizes object_
+    _eg pizza.size = {}_
+*               _&              => pizza.size = medium_
+    _sizes.medium is an object_
+
+* _Object of pizza crusts will be created_
+  * _eg. crusts = thin, whole wheat, gluten-free rubber_
+* _Pizza crusts will be objects with associated pricing surcharges_
+  * _eg wheat = +10%_
+* _The Pizza object will be able to get a crust object from the pizza crusts object_
+    _eg pizza.crust = {}_
+*               _&              => pizza.crust = wheat_
+    _crusts.wheat_
+
+* _An object of all topping choices will be created_
+* _An object of pizza toppings will be created inside of pizza_
+* _pizza.toppings will be populated with selections from the topping choices object_
+
+* _Pizza Price prototype will add up prices of size, crust, and toppings_
+* _Order object will contain pizza objects, an address object, delivery method (pick up vs. delivery), and a total price_
+* _Order object will contain a totalPrice prototype to add up the price of the order_
+* _UI will allow users to select a pizza size from a pull-down menu_
+* _UI will allow users to select a pizza size from a pull-down menu_
+* _UI will allow users to click on toppings to add them to their pizza_
+* _UI will show pizza price to user_
+* _UI will prompt user for address and delivery method of pizza_
+* _UI will present a receipt for user_
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
-
-## Support and contact details
-
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+_There are no known bugs at this time_
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+_This website was built using Javascript, Jquery, and Bootstrap_
 
 ### License
 
-*{Determine the license under which this application can be used.  See below for more details on licensing.}*
+*This software is licensed under the MIT license*
 
-Copyright (c) 2016 **_{List of contributors or company name}_**
+Copyright (c) 2016 **_Eric Schoettle_**
