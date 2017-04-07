@@ -1,10 +1,10 @@
 // Back End
 
 // Pizza Object
-function Pizza(size, crust, toppings) {
+function Pizza(size, crust, myToppings) {
   this.size = size;
   this.crust = crust;
-  this.toppings = toppings;
+  this.myToppings = myToppings;
   this.price = NaN;
 }
 
@@ -25,8 +25,6 @@ sizesArray.forEach(function(size) {
   sizes[pizzaSize.name] = pizzaSize
 });
 
-// var sizes = {"small":small, "medium":medium, "large":large, "xl":xl}
-
 // Pizza crusts
 var regular = {name: regular, priceFactor: 1}
 var wheat = {name: wheat, priceFactor: 1.1}
@@ -35,8 +33,27 @@ var glutenFreeCardboard = {name: glutenFreeCardboard, priceFactor: 1.5}
 var crusts = {"regular":regular, "wheat":wheat, "glutenFreeCardboard":glutenFreeCardboard}
 
 // Pizza toppings
+function Topping(name, price) {
+  this.name = name;
+  this.price = price;
+}
+var toppings = {}
+var toppingsArray = [["redOnions", .75],
+                  ["bellPeppers", .75],
+                  ["jalepenos", .75],
+                  ["freshMozzerella", 1],
+                  ["ricotta", 1],
+                  ["feta", 1],
+                  ["salami", 1.5],
+                  ["chicken", 1.5],
+                  ["italianSausage", 1.5]]
 
+toppingsArray.forEach(function(topping) {
+  var pizzaTopping = new Topping(topping[0], topping[1])
+  toppings[pizzaTopping.name] = pizzaTopping
+});
 
+console.log(toppings)
 // Front End
 // console.log(sizes.small)
 // var pizza = new Pizza(sizes.small, crusts.regular, "pepperoni")
