@@ -38,9 +38,9 @@ function Topping(name, price) {
   this.price = price;
 }
 var toppings = {}
-var toppingsArray = [["redOnions", .75],
-                  ["bellPeppers", .75],
-                  ["jalepenos", .75],
+var toppingsArray = [["redOnions", 0.75],
+                  ["bellPeppers", 0.75],
+                  ["jalepenos", 0.75],
                   ["freshMozzerella", 1],
                   ["ricotta", 1],
                   ["feta", 1],
@@ -55,11 +55,8 @@ toppingsArray.forEach(function(topping) {
 
 console.log(toppings)
 // Front End
-// console.log(sizes.small)
-// var pizza = new Pizza(sizes.small, crusts.regular, "pepperoni")
-// console.log(pizza)
-
 $(document).ready(function() {
+
   $("form").submit(function(event) {
     event.preventDefault();
 
