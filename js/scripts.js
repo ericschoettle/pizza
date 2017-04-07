@@ -63,6 +63,7 @@ function makeRadioButtons(name, object) {
         "<label><input type='radio' name='object' value='" + key + "'>" + key +  "</label>" +
       "</div>")
   }
+}
 
 console.log(sizes)
 $(document).ready(function() {
@@ -78,7 +79,12 @@ $(document).ready(function() {
         "<label><input type='radio' name='crusts' value='" + key + "'>" + key +  "</label>" +
       "</div>")
   }
-
+  for (key in toppings) {
+    $("#toppings").append(
+      "<div class='checkbox'>" +
+        "label><input type='checkbox' name='toppings' value='" + key + "'>" + key + "</label>" +
+      "</div>")
+  }
   $("form").submit(function(event) {
     event.preventDefault();
 
