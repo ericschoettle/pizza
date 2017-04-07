@@ -53,40 +53,69 @@ toppingsArray.forEach(function(topping) {
   toppings[pizzaTopping.name] = pizzaTopping
 });
 
-console.log(toppings)
 // Front End
 
 function makeRadioButtons(name, object) {
   for (key in object) {
-    $("#object").append(
+    $("#" + name).append(
       "<div class='radio'>" +
-        "<label><input type='radio' name='object' value='" + key + "'>" + key +  "</label>" +
+        "<label><input type='radio' name='" + name + "' value='" + key + "'>" + camelCaseToTitle(key) +  "</label>" +
       "</div>")
   }
 }
 
-console.log(sizes)
-$(document).ready(function() {
-  for (key in sizes) {
-    $("#sizes").append(
-      "<div class='radio'>" +
-        "<label><input type='radio' name='sizes' value='" + key + "'>" + key +  "</label>" +
-      "</div>")
-  }
-  for (key in crusts) {
-    $("#crusts").append(
-      "<div class='radio'>" +
-        "<label><input type='radio' name='crusts' value='" + key + "'>" + key +  "</label>" +
-      "</div>")
-  }
-  for (key in toppings) {
-    $("#toppings").append(
+function makeCheckBoxes(name, object) {
+  for (key in object) {
+    $("#" + name).append(
       "<div class='checkbox'>" +
-        "label><input type='checkbox' name='toppings' value='" + key + "'>" + key + "</label>" +
+        "<label><input type='checkbox' name='" + name + "' value='" + key + "'>" + camelCaseToTitle(key) + "</label>" +
       "</div>")
   }
+}
+
+function camelCaseToTitle(string) {
+  var idx = findAllIndicies(string, /[A-Z]/g)
+  var words = splitOnIndex(string, idx)
+  var withSpaces = words.join(" ")
+  var withCaps = capitalizeFirstLetter(withSpaces)
+  return withCaps
+}
+
+function findAllIndicies(string, regExp) {
+  var indicies = [];
+
+  while ((index = regExp.exec(string)) !== null) {
+    indicies.push(index.index)
+  }
+  return indicies
+}
+
+function splitOnIndex (string, idxArray) {
+  var firstWord = string.substring(0, idxArray[0])
+  var words = []
+  for (var i = 1; i <= idxArray.length; i++) {
+    if (i < idxArray.length) {
+      words.push(string.substring(idxArray[i-1], idxArray[i]))
+    } else {
+      words.push(string.substring(idxArray[i-1]))
+    }
+  }
+  words.unshift(firstWord)
+  return words
+}
+
+function capitalizeFirstLetter (string) {
+  string = string.charAt(0).toUpperCase() + string.slice(1);
+  return string
+}
+
+$(document).ready(function() {
+  makeRadioButtons("crusts", crusts)
+  makeRadioButtons("sizes", sizes)
+  makeCheckBoxes("toppings", toppings)
+
   $("form").submit(function(event) {
     event.preventDefault();
 
-  })
+  });
 });
