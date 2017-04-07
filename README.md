@@ -42,9 +42,9 @@ _Just download the folder and open index.html in your favorite web browser. Unle
 * _Pizza Price prototype will add up prices of size, crust, and toppings_
 * _Order object will contain pizza objects, an address object, delivery method (pick up vs. delivery), and a total price_
 * _Order object will contain a totalPrice prototype to add up the price of the order_
-* _UI will allow users to select a pizza size from a pull-down menu_
-* _UI will allow users to select a pizza size from a pull-down menu_
-* _UI will allow users to click on toppings to add them to their pizza_
+* _UI will allow users to select a pizza size using radio buttons_
+* _UI will allow users to select a pizza crust using radio buttons_
+* _UI will allow users to select toppings with checkboxes_
 * _UI will show pizza price to user_
 * _UI will prompt user for address and delivery method of pizza_
 * _UI will present a receipt for user_

@@ -55,7 +55,29 @@ toppingsArray.forEach(function(topping) {
 
 console.log(toppings)
 // Front End
+
+function makeRadioButtons(name, object) {
+  for (key in object) {
+    $("#object").append(
+      "<div class='radio'>" +
+        "<label><input type='radio' name='object' value='" + key + "'>" + key +  "</label>" +
+      "</div>")
+  }
+
+console.log(sizes)
 $(document).ready(function() {
+  for (key in sizes) {
+    $("#sizes").append(
+      "<div class='radio'>" +
+        "<label><input type='radio' name='sizes' value='" + key + "'>" + key +  "</label>" +
+      "</div>")
+  }
+  for (key in crusts) {
+    $("#crusts").append(
+      "<div class='radio'>" +
+        "<label><input type='radio' name='crusts' value='" + key + "'>" + key +  "</label>" +
+      "</div>")
+  }
 
   $("form").submit(function(event) {
     event.preventDefault();
