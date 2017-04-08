@@ -5,9 +5,17 @@ function Pizza(size, crust, myToppings) {
   this.size = size;
   this.crust = crust;
   this.myToppings = myToppings;
-  this.price = NaN;
+  this.pizzaPrice = 0;
 }
 
+Pizza.prototype.calculatePrice = function() {
+  var toppingsPriceTotal = 0
+  for (topping in this.myToppings) {
+    toppingsPriceTotal +=1
+  }
+  var pizzaPrice = this.size.basePrice * this.crust.priceFactor + toppingsPriceTotal
+  this.pizzaPrice = Math.ceil(pizzaPrice)
+}
 // Pizza Sizes
 function Size(name, diameter, basePrice) {
   this.name = name;
@@ -31,12 +39,14 @@ var wheat = {name: wheat, priceFactor: 1.1}
 var glutenFreeCardboard = {name: glutenFreeCardboard, priceFactor: 1.5}
 
 var crusts = {"regular":regular, "wheat":wheat, "glutenFreeCardboard":glutenFreeCardboard}
+console.log(crusts)
 
 // Pizza toppings
 function Topping(name, price) {
   this.name = name;
   this.price = price;
 }
+
 var toppings = {}
 var toppingsArray = [["redOnions", 0.75],
                   ["bellPeppers", 0.75],
@@ -53,8 +63,7 @@ toppingsArray.forEach(function(topping) {
   toppings[pizzaTopping.name] = pizzaTopping
 });
 
-// Front End
-
+// Front End, ish
 function makeRadioButtons(name, object) {
   for (key in object) {
     $("#" + name).append(
@@ -117,5 +126,14 @@ $(document).ready(function() {
   $("form").submit(function(event) {
     event.preventDefault();
 
+    var myPizzaSize = $("input:radio[name=sizes]:checked").val();
+    var myPizzaCrust = $("input:radio[name=crusts]:checked").val();
+    var myPizzaToppings = {};
+    $("input:checkbox[name=toppings]:checked").each(function() {
+      myPizzaToppings[$(this).val()] = toppings[$(this).val()]
+    });
+    var myPizza = new Pizza(sizes[myPizzaSize], crusts[myPizzaCrust], myPizzaToppings)
+    myPizza.calculatePrice()
+    $(".container").append("<h2>Your Pizza will cost: $" + myPizza.pizzaPrice + ".00</h2>")
   });
 });

@@ -47,8 +47,7 @@ _Just download the folder and open index.html in your favorite web browser. Unle
 * _UI will allow users to select a pizza crust using radio buttons_
 * _UI will allow users to select toppings with checkboxes_
 * _UI will show pizza price to user_
-* _UI will prompt user for address and delivery method of pizza_
-* _UI will present a receipt for user_
+
 
 ## Known Bugs
 
